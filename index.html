@@ -49,10 +49,16 @@
         }
         @media (min-width: 768px) {
             .bs-docs-section {
-            margin-top: 5em;
+               margin-top: 5em;
             }
             .bs-component {
-            position: relative;
+                position: relative;
+            }
+            .bs-component .popover {
+                position: relative;
+                display: inline-block;
+                width: 220px;
+                margin: 20px;
             }
         }
         </style>
@@ -114,8 +120,8 @@
                                     </div>
                                 </form>
                             </div>
-                            <p class="text-muted text-right">
-                                検索には最大15秒ぐらいかかります。たくさん見つかった場合は最大10個まで表示します。
+                            <p class="text-muted text-center">
+                                検索には6秒ぐらいかかります。たくさん見つかった場合は最大10個まで表示します。
                             </p>
                         </div>
                     </div>
@@ -376,6 +382,24 @@
                 </div>
             </section>
 
+            <div class="col-lg-6">
+                <div class="bs-component text-center" style="margin-bottom: 3em;">
+                    <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    title="役に立った！と思ったら"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-placement="bottom"
+                    data-html="true"
+                    data-content="
+                        <ol><li>ゆゆゆいに課金しましょう。</li>
+                        <li>より多くのシナリオに対応できるよう収集にご協力ください。詳しくは <a href='https://twitter.com/ushik_ado'>@ushik_ado</a> にDM飛ばしてください。</li></ol>"
+                    >
+                    お役に立てましたか？
+                    </button>
+                </div>
+            </div>
         </div>
         
         <svg xmlns="http://www.w3.org/2000/svg">
@@ -397,5 +421,9 @@
         ></script>
         <script src="./js/bootstrap.min.js"></script>
         <script src="./js/yuyuyui.js"></script>
+        <script type="text/javascript">
+          $('.bs-component [data-toggle="popover"]').popover();
+          $('.bs-component [data-toggle="tooltip"]').tooltip();
+        </script>
     </body>
 </html>
