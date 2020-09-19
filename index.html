@@ -21,6 +21,9 @@
             background-color: rgb(255, 251, 253);
             background-image: repeating-linear-gradient(90deg, transparent, transparent 40px, rgb(253, 242, 248) 40px, rgb(253, 242, 248) 120px );
         }
+        span.nobreak {
+            display: inline-block;
+        }
         .progress {
             margin-bottom: 10px;
         }
@@ -73,13 +76,15 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="page-header">
-                            <h1 class="display-3 text-center">ゆゆゆい全文検索</h1>
+                            <h1 class="display-3 text-center">
+                                <span class="nobreak">ゆゆゆい</span><span class="nobreak">全文検索</span>
+                            </h1>
                         </div>
                         <p class="lead text-center">「あのセリフ、どこだっけ？」</p>
                     </div>
                     <div class="col-lg-4">
                         <div class="card mb-4">
-                            <h4 class="card-header">シナリオ対応状況</h4>
+                            <h5 class="card-header">シナリオ対応状況</h5>
                             <div class="card-body">
                                 <div class="progress">
                                     <div
@@ -100,7 +105,7 @@
 
             <section class="bs-docs-section">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6 offset-lg-3">
                         <div class="bs-component">
                             <div class="form-group">
                                 <form class="md-form" name="search" id="search-form" method="post">
@@ -114,14 +119,18 @@
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" id="submit-button">
                                                 <span id="search-button-text">検索</span>
-                                                <span id="search-button-spinner" style="display:none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                 <span id="search-button-spinner" style="display:none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                             </button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="bs-component">
                             <p class="text-muted text-center">
-                                検索には6秒ぐらいかかります。たくさん見つかった場合は最大10個まで表示します。
+                                <small><span class="nobreak">検索には6秒ぐらいかかります。</span><span class="nobreak">たくさん見つかった場合は最大10個まで表示します。</span></small>
                             </p>
                         </div>
                     </div>
