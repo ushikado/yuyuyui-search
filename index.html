@@ -33,6 +33,12 @@
         .card-body-inner {
             position: relative;
         }
+        .help-icon {
+            fill: #111111;
+            width: 15px;
+            height: 15px;
+            transition: all 0.15s ease-in-out;
+        }
         .tweet-button {
             position: absolute;
             top: 0px;
@@ -52,7 +58,7 @@
         }
         @media (min-width: 768px) {
             .bs-docs-section {
-               margin-top: 5em;
+               margin-top: 3em;
             }
             .bs-component {
                 position: relative;
@@ -84,17 +90,17 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="card mb-4">
-                            <h5 class="card-header">シナリオ対応状況</h5>
+                            <h5 class="card-header">シナリオ対応状況 (2020/09/20)</h5>
                             <div class="card-body">
                                 <div class="progress">
                                     <div
                                     class="progress-bar progress-bar-striped"
                                     role="progressbar"
-                                    style="width: 63%;"
+                                    style="width: 100%;"
                                     ></div>
                                 </div>
                                 <p class="card-text text-right">
-                                    1439 / 2284 (63%)
+                                    2284 / 2284 (100%)
                                 </p>
                             </div>
                         </div>
@@ -129,8 +135,11 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="bs-component">
-                            <p class="text-muted text-center">
-                                <small><span class="nobreak">検索には6秒ぐらいかかります。</span><span class="nobreak">たくさん見つかった場合は最大10個まで表示します。</span></small>
+                            <p class="text-muted text-center initialism">
+                                <span class="nobreak">検索には6秒ぐらいかかります。</span><span class="nobreak">たくさん見つかった場合は<span
+                                    data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="著作権者の利益を不当に害さないよう配慮しています"><u>最大10個まで</u></span>表示します。</span>
                             </p>
                         </div>
                     </div>
@@ -403,7 +412,8 @@
                     data-html="true"
                     data-content="
                         <ol><li>ゆゆゆいに課金しましょう。</li>
-                        <li>より多くのシナリオに対応できるよう収集にご協力ください。詳しくは <a href='https://twitter.com/ushik_ado'>@ushik_ado</a> にDM飛ばしてください。</li></ol>"
+                        <li><s>より多くのシナリオに対応できるよう収集にご協力ください。詳しくは <a href='https://twitter.com/ushik_ado'>@ushik_ado</a> にDM飛ばしてください。</s></li>
+                        有志のご協力により完全対応しました！</ol>"
                     >
                     お役に立てましたか？
                     </button>
