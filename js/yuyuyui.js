@@ -21,9 +21,9 @@ function sendQuery(query) {
             dataType: "json",
             data: JSON.stringify({"query":query}),
             url: 'https://asia-northeast2-yuyuyui-script-search-20200915.cloudfunctions.net/lookup'})
-    .done(function(results) {
+    .done(function(response) {
         try {
-            fillResultBlocks(results);
+            fillResultBlocks(response);
         } catch (error) {
             alert("応答の処理中にエラーが発生しました。");
         }
@@ -43,12 +43,17 @@ function sendQuery(query) {
 
 }
 
-function fillResultBlocks(results) {
-    let resultBlocks        = document.getElementsByClassName("result-block");
-    let characterContainers = document.getElementsByClassName("result-character");
-    let textContainers      = document.getElementsByClassName("result-text");
-    let metaContainers      = document.getElementsByClassName("result-meta");
-    let tweetLink           = document.getElementsByClassName("tweet-button-a");
+function fillResultBlocks(response) {
+    let totalCount = response["total_count"];
+    document.getElementById("result-totalcount").textContent = totalCount.toString();
+    document.getElementById("result-totalcount-block").style.diplay = "block";
+
+    let results = response["results"];
+    let resultBlocks          = document.getElementsByClassName("result-block");
+    let characterContainers   = document.getElementsByClassName("result-character");
+    let textContainers        = document.getElementsByClassName("result-text");
+    let metaContainers        = document.getElementsByClassName("result-meta");
+    let tweetLink             = document.getElementsByClassName("tweet-button-a");
     for (let i = 0; i < results.length; i++) {
         const character = results[i][0];
         const text      = results[i][1];
@@ -79,7 +84,9 @@ function stopSpinner() {
 }
 
 function hideResultBlocks() {
-    var resultBlocks = document.getElementsByClassName("result-block");
+    document.getElementById("result-totalcount-block").style.diplay = "none";
+
+    let resultBlocks = document.getElementsByClassName("result-block");
     Array.from(resultBlocks).forEach(element => {
         element.style.display = "none";
     });
