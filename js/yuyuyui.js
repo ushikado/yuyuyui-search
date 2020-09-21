@@ -46,7 +46,7 @@ function sendQuery(query) {
 function fillResultBlocks(response) {
     let totalCount = response["total_count"];
     document.getElementById("result-totalcount").textContent = totalCount.toString();
-    document.getElementById("result-totalcount-block").style.diplay = "block";
+    document.getElementById("result-totalcount-block").style.display = "block";
 
     let results = response["results"];
     let resultBlocks          = document.getElementsByClassName("result-block");
