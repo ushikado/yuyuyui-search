@@ -62,7 +62,7 @@ function fillResultBlocks(response) {
             (accum, m) =>
             accum + '<li class="breadcrumb-item">' + m + '</li>',
             '');
-        const teweetText = character + "「" + text + "」\n　――" + metaList.join("/") + "\n";
+        const teweetText = character + "「" + text + "」\n―" + metaList.join("/") + "\n";
         const tweetHref = "https://twitter.com/intent/tweet?original_referer=" + encodeURI(siteURL)
             + "&ref_src=twsrc%5Etfw&text=" + encodeURI(teweetText) + "&tw_p=tweetbutton&url=" + encodeURI(siteURL);
         characterContainers[i].textContent = character;
