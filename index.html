@@ -99,6 +99,12 @@
                 </button>
                 <strong>2020/09/20</strong> までに公開されたシナリオが検索対象です。
               </div>
+              <div class="alert alert-dismissible alert-primary">
+                <button type="button" class="close" data-dismiss="alert">
+                  &times;
+                </button>
+                <strong>2020/10/12</strong> キャラクターごとの発言数を表示するようになりました。
+              </div>
             </div>
           </div>
         </div>
@@ -140,289 +146,302 @@
             </div>
           </div>
           
-          <div class="col-lg-12">
-            <div class="bs-component">
-              <p id="result-totalcount-block">
+          <div class="col-lg-2 offset-lg-4">
+
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-auto" style="min-width: 200px;">
+            <div class="bs-component mb-4" id="result-totalcount-block">
+              <p>
               検索結果：<span id="result-totalcount">0</span>件
+              </p>
+              <button class="btn btn-secondary btn-block py-2" type="button" data-toggle="collapse" data-target="#result-characounts-list" aria-expanded="true" aria-controls="result-characounts-list">
+                キャラクター
+              </button>
+              <div class="list-group list-group collapse show" id="result-characounts-list" class="collapse show">
+                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">上里 ひなた</span><span class="badge badge-secondary">14</span></div>
+                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">複数・ほか</span><span class="badge badge-secondary">1400</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md">
+            <div class="row"> <!-- ----------------------------------------------------------------------------------------- -->
+
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+    
+              <div class="col-lg-6 result-block">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="card-body-inner">
+                      <span class="tweet-button">
+                        <a target="_blank" href="" class="tweet-button-a">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </span>
+                      <p class="card-text lead result-character">
+                        character
+                      </p>
+                      <p class="card-text lead result-text">
+                        text
+                      </p>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
+                    <li class="breadcrumb-item">meta</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="col-lg-4 offset-lg-4">
+        <div class="bs-component">
+          <button class="btn btn-block btn-outline-primary collapsed" type="button" data-toggle="collapse" data-target="#about-content">
+            このサービスについて
+          </button>
+          <div class="card collapse" id="about-content">
+            <div class="card-body">
+              <p class="card-text">
+                このサービスは公式に無関係のファンが運営しています。役に立った！と思ったら、ゆゆゆいのゲーム内アイテムを購入するなどしてコンテンツを応援しましょう。<br>
+                不具合報告などは <a href='https://twitter.com/ushik_ado'>@ushik_ado</a> まで。
               </p>
             </div>
           </div>
         </div>
-
-        <div class="row"> <!-- ----------------------------------------------------------------------------------------- -->
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="col-lg-6 result-block">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-body-inner">
-                  <span class="tweet-button">
-                    <a target="_blank" href="" class="tweet-button-a">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="twitter-icon" viewBox="0 0 72 72">
-                        <use xlink:href="#twitter" />
-                      </svg>
-                    </a>
-                  </span>
-                  <p class="card-text lead result-character">
-                    character
-                  </p>
-                  <p class="card-text lead result-text">
-                    text
-                  </p>
-                </div>
-              </div>
-              <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
-                <li class="breadcrumb-item">meta</li>
-              </ol>
-            </div>
-          </div>
-          
-        </div>
-      </section>
-
-      <div class="col-lg-12">
-        <div class="bs-component text-center" style="margin-bottom: 3em;">
-          <button
-          type="button"
-          class="btn btn-outline-primary"
-          title="役に立った！と思ったら"
-          data-container="body"
-          data-toggle="popover"
-          data-placement="bottom"
-          data-html="true"
-          data-content="
-            <ol><li>ゆゆゆいに課金しましょう。</li>
-            <li><s>より多くのシナリオに対応できるよう収集にご協力ください。詳しくは <a href='https://twitter.com/ushik_ado'>@ushik_ado</a> にDM飛ばしてください。</s></li>
-            有志のご協力により完全対応しました！</ol>"
-          >
-          お役に立てましたか？
-          </button>
-        </div>
       </div>
+
     </div>
     
     <svg xmlns="http://www.w3.org/2000/svg">
