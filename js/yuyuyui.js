@@ -15,6 +15,8 @@ form.addEventListener('submit', function (evt) {
     }
 });
 
+
+
 function sendQuery(query) {
     $.ajax({type: "post",
             contentType: 'application/json',
@@ -24,6 +26,7 @@ function sendQuery(query) {
     .done(function(response) {
         try {
             fillResultBlocks(response);
+            fillCharacterCounts(response);
         } catch (error) {
             alert("応答の処理中にエラーが発生しました。");
         }
@@ -71,6 +74,17 @@ function fillResultBlocks(response) {
         tweetLink[i]          .href        = tweetHref;
         resultBlocks[i].style.display = "block";
     }
+}
+
+function fillCharacterCounts(response) {
+    chara_count_list = response["character_counts"];
+    let inner_html = ""
+    for (let i = 0; i < chara_count_list.length; i++) {
+        const chara  = chara_count_list[i][0];
+        const count = chara_count_list[i][1];
+        inner_html += '<div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">' + chara + '</span><span class="badge badge-secondary">' + count + '</span></div>';
+    }
+    $("#result-characounts-list").innerHTML = inner_html;
 }
 
 function startSpinner() {
