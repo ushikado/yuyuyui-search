@@ -84,7 +84,7 @@ function fillCharacterCounts(response) {
         const count = chara_count_list[i][1];
         inner_html += '<div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">' + chara + '</span><span class="badge badge-secondary">' + count + '</span></div>';
     }
-    $("#result-characounts-list").innerHTML = inner_html;
+    $("#result-characounts-list")[0].innerHTML = inner_html;
 }
 
 function startSpinner() {
