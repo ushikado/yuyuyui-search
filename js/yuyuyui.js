@@ -1,27 +1,29 @@
 const siteURL = location.href;
 
-var loading = false;
+let loading = false;
+
+let query = null;
 
 var form = document.getElementById('search-form');
 form.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
-    const query = document.search.query.value.trim();
+    query = document.search.query.value.trim();
     if (!loading && query != "") {
         loading = true;
         startSpinner();
         hideResultBlocks();
-        sendQuery(query);
+        sendRequest({"query":query});
     }
 });
 
 
 
-function sendQuery(query) {
+function sendRequest(request, character=None) {
     $.ajax({type: "post",
             contentType: 'application/json',
             dataType: "json",
-            data: JSON.stringify({"query":query}),
+            data: JSON.stringify(request),
             url: 'https://asia-northeast2-yuyuyui-script-search-20200915.cloudfunctions.net/lookup'})
     .done(function(response) {
         try {
@@ -82,9 +84,21 @@ function fillCharacterCounts(response) {
     for (let i = 0; i < chara_count_list.length; i++) {
         const chara  = chara_count_list[i][0];
         const count = chara_count_list[i][1];
-        inner_html += '<div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">' + chara + '</span><span class="badge badge-secondary">' + count + '</span></div>';
+        inner_html += '<div type="button" onclick="onCharaClick(evt)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">' + chara + '</span><span class="badge badge-secondary">' + count + '</span></div>';
     }
     $("#result-characounts-list")[0].innerHTML = inner_html;
+}
+
+function onCharaClick(evt) {
+    sender = evt.target;
+    let character = sender.getElementsByClassName("result-characounts-text").innerText;
+
+    if (!loading) {
+        loading = true;
+        startSpinner();
+        hideResultBlocks();
+        sendRequest({"query":query, "character":character});
+    }
 }
 
 function startSpinner() {
@@ -98,7 +112,7 @@ function stopSpinner() {
 }
 
 function hideResultBlocks() {
-    document.getElementById("result-totalcount-block").style.diplay = "none";
+    document.getElementById("result-totalcount-block").style.display = "none";
 
     let resultBlocks = document.getElementsByClassName("result-block");
     Array.from(resultBlocks).forEach(element => {
