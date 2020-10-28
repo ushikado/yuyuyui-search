@@ -84,15 +84,12 @@ function fillCharacterCounts(response) {
     for (let i = 0; i < chara_count_list.length; i++) {
         const chara  = chara_count_list[i][0];
         const count = chara_count_list[i][1];
-        inner_html += '<div type="button" onclick="onCharaClick(evt)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">' + chara + '</span><span class="badge badge-secondary">' + count + '</span></div>';
+        inner_html += '<div type="button" onclick="onCharaClick(\'' + chara + '\')" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">' + chara + '</span><span class="badge badge-secondary">' + count + '</span></div>';
     }
     $("#result-characounts-list")[0].innerHTML = inner_html;
 }
 
-function onCharaClick(evt) {
-    sender = evt.target;
-    let character = sender.getElementsByClassName("result-characounts-text").innerText;
-
+function onCharaClick(character) {
     if (!loading) {
         loading = true;
         startSpinner();
