@@ -19,7 +19,7 @@ form.addEventListener('submit', function (evt) {
 
 
 
-function sendRequest(request, character=None) {
+function sendRequest(request) {
     $.ajax({type: "post",
             contentType: 'application/json',
             dataType: "json",
