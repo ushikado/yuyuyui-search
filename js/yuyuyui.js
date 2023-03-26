@@ -1,13 +1,13 @@
 const siteURL = location.href;
-​
+
 let loading = false;
-​
+
 let query = null;
-​
+
 var form = document.getElementById('search-form');
 form.addEventListener('submit', function (evt) {
     evt.preventDefault();
-​
+
     query = document.search.query.value.trim();
     fuzzySearch = document.getElementById('fuzzy-switch').checked;
     if (!loading && query != "") {
@@ -17,9 +17,9 @@ form.addEventListener('submit', function (evt) {
         sendRequest({"query":query, "fuzzy_search": fuzzySearch});
     }
 });
-​
-​
-​
+
+
+
 function sendRequest(request) {
     $.ajax({type: "post",
             contentType: 'application/json',
@@ -46,14 +46,14 @@ function sendRequest(request) {
         loading = false;
         stopSpinner();
     })
-​
+
 }
-​
+
 function fillResultBlocks(response) {
     let totalCount = response["total_count"];
     document.getElementById("result-totalcount").textContent = totalCount.toString();
     document.getElementById("result-totalcount-block").style.display = "block";
-​
+
     let results = response["results"];
     let resultBlocks          = document.getElementsByClassName("result-block");
     let characterContainers   = document.getElementsByClassName("result-character");
@@ -78,7 +78,7 @@ function fillResultBlocks(response) {
         resultBlocks[i].style.display = "block";
     }
 }
-​
+
 function fillCharacterCounts(response) {
     chara_count_list = response["character_counts"];
     let inner_html = ""
@@ -89,7 +89,7 @@ function fillCharacterCounts(response) {
     }
     $("#result-characounts-list")[0].innerHTML = inner_html;
 }
-​
+
 function onCharaClick(character) {
     if (!loading) {
         loading = true;
@@ -98,20 +98,20 @@ function onCharaClick(character) {
         sendRequest({"query":query, "character":character, "fuzzy_search": fuzzySearch});
     }
 }
-​
+
 function startSpinner() {
     document.getElementById('search-button-text').style.display = "none";
     document.getElementById('search-button-spinner').style.display = "block";
 }
-​
+
 function stopSpinner() {
     document.getElementById('search-button-text').style.display = "inline";
     document.getElementById('search-button-spinner').style.display = "none";
 }
-​
+
 function hideResultBlocks() {
     document.getElementById("result-totalcount-block").style.display = "none";
-​
+
     let resultBlocks = document.getElementsByClassName("result-block");
     Array.from(resultBlocks).forEach(element => {
         element.style.display = "none";
