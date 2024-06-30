@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:creator" content="@ushik_ado" />
-    <meta name="twitter:title" content="ゆゆゆい全文検索" />
-    <meta name="twitter:description" content="「あのセリフ、どこだっけ？」あなたが探しているセリフの場所を見つけるお手伝いをします。" />
-    <meta name="twitter:image" content="" />
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    >
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@ushik_ado">
+    <meta name="twitter:title" content="ゆゆゆい全文検索">
+    <meta name="twitter:description" content="「あのセリフ、どこだっけ？」あなたが探しているセリフの場所を見つけるお手伝いをします。">
+    <meta name="twitter:image" content="">
 
     <title>ゆゆゆい全文検索</title>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <style type="text/css">
     body {
       background-size: auto auto;
@@ -97,8 +97,11 @@
                 <button type="button" class="close" data-dismiss="alert">
                   &times;
                 </button>
-                <strong>2023/03/19</strong> すべてのシナリオに対応しました。<br>
-                <strong>2023/03/26</strong> 表記ゆれ緩和機能を追加しました。全角・半角の違いや、連続する「ー」の数にかかわらず検索できます。
+                <p><strong>2024/06/30</strong></p>
+                <p>PS4/Switch版収録の新作シナリオに対応し、所在の表示もPS4/Switch版に準拠しました。</p>
+                <p>イベントの時期が表示されるようになりました。</p>
+                <p>表記ゆれ緩和を3段階に変更しました。</p>
+                
               </div>
             </div>
           </div>
@@ -112,11 +115,21 @@
             <div class="bs-component">
               <div class="form-group">
                 <form class="md-form" name="search" id="search-form" method="post">
-                  <div class="form-group mb-3 float-right">
-                    <div class="custom-control custom-switch">
-                      <input type="checkbox" class="custom-control-input" id="fuzzy-switch" checked/>
-                      <label class="custom-control-label" for="fuzzy-switch" data-toggle="tooltip" data-placement="top"
-                      title="全角・半角の違いや、連続する「ー」の数にかかわらず検索できます">表記ゆれ緩和</label>
+                  <div class="form-group mb-3 text-center">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="normalization-radio-1" value="none" name="normalization-radio" class="custom-control-input">
+                      <label class="custom-control-label" for="normalization-radio-1" data-toggle="tooltip" data-placement="top"
+                      title="厳格に一致する表現を検索します">かため</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="normalization-radio-2" value="none" name="normalization-radio" class="custom-control-input" checked>
+                      <label class="custom-control-label" for="normalization-radio-2" data-toggle="tooltip" data-placement="top"
+                      title="全角・半角などの違いを無視して検索します">ふつう</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="normalization-radio-3" value="none" name="normalization-radio" class="custom-control-input">
+                      <label class="custom-control-label" for="normalization-radio-3" data-toggle="tooltip" data-placement="top"
+                      title="「ふつう」に加えて、連続する「ー」の数などを無視して検索します">やわらかめ</label>
                     </div>
                   </div>
                   <div class="input-group">
@@ -125,7 +138,7 @@
                     type="text"
                     placeholder="探したいセリフの一部を入力"
                     name="query"
-                    />
+                    >
                     <div class="input-group-append">
                       <button class="btn btn-primary" id="submit-button">
                         <span id="search-button-text">検索</span>
@@ -161,7 +174,7 @@
               検索結果：<span id="result-totalcount">0</span>件
               </p>
               <button class="btn btn-secondary btn-block py-2" type="button" data-toggle="collapse" data-target="#result-characounts-list" aria-expanded="true" aria-controls="result-characounts-list">
-                キャラクター
+                ▽ キャラクター
               </button>
               <div class="list-group list-group collapse show" id="result-characounts-list">
                 <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">上里 ひなた</span><span class="badge badge-secondary">14</span></div>
@@ -192,12 +205,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -217,12 +234,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -242,12 +263,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -267,12 +292,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -292,12 +321,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -317,12 +350,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -342,12 +379,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -367,12 +408,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -392,12 +437,16 @@
                       </p>
                     </div>
                   </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
+                  </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
                   </ol>
                 </div>
               </div>
-    
+
               <div class="col-lg-6 result-block">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -416,6 +465,10 @@
                         text
                       </p>
                     </div>
+                  </div>
+                  <div class="card-body pt-0 pb-0 text-right">
+                    <span class="badge badge-light text-muted mb-4 result-new"></span>
+                    <span class="badge badge-light text-muted mb-4 result-date"></span>
                   </div>
                   <ol class="breadcrumb card-footer text-muted mb-0 result-meta">
                     <li class="breadcrumb-item">meta</li>
@@ -439,10 +492,10 @@
                 これは公式と無関係のファンが運営している所在検索サービスです。
               </p>
               <p class="card-text">
-                役に立った！と思ったら、今後発売予定の<a href="https://www.entergram.co.jp/yuyuyui/">PS4/Switch移植版ゆゆゆい</a>を購入するなどしてコンテンツを応援しましょう。
+                役に立った！と思ったら、<a href="https://www.entergram.co.jp/yuyuyui/">PS4/Switch移植版ゆゆゆい</a>を購入するなどしてコンテンツを応援しましょう。
               </p>
               <p class="card-text">
-                サーバーのログには接続元IPアドレスや検索文字列は記録されません。
+                接続元IPアドレスや検索文字列は収集していません。
               </p>
               <p class="card-text">
                 要望や不具合報告などは <a href='https://twitter.com/ushik_ado'>@ushik_ado</a> まで。

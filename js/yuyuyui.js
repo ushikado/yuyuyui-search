@@ -2,19 +2,26 @@ const siteURL = location.href;
 
 let loading = false;
 
-let query = null;
+let query = "";
+let normalization_mode = "";
 
 var form = document.getElementById('search-form');
 form.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
     query = document.search.query.value.trim();
-    fuzzySearch = document.getElementById('fuzzy-switch').checked;
+    const normalization_mode_mapping = {
+        "normalization-radio-1": "none",
+        "normalization-radio-2": "unicode",
+        "normalization-radio-3": "neologdn"
+    }
+    const normalization_mode_key = document.querySelector("input[name='normalization-radio']:checked").id;
+    normalization_mode = normalization_mode_mapping[normalization_mode_key];
     if (!loading && query != "") {
         loading = true;
         startSpinner();
         hideResultBlocks();
-        sendRequest({"query":query, "fuzzy_search": fuzzySearch});
+        sendRequest({"query":query, "normalization_mode": normalization_mode});
     }
 });
 
@@ -25,7 +32,7 @@ function sendRequest(request) {
             contentType: 'application/json',
             dataType: "json",
             data: JSON.stringify(request),
-            url: 'https://asia-northeast2-yuyuyui-script-search-20200915.cloudfunctions.net/lookup'})
+            url: 'https://asia-northeast2-yuyuyui-script-search-20200915.cloudfunctions.net/search'})
     .done(function(response) {
         try {
             fillResultBlocks(response);
@@ -58,12 +65,16 @@ function fillResultBlocks(response) {
     let resultBlocks          = document.getElementsByClassName("result-block");
     let characterContainers   = document.getElementsByClassName("result-character");
     let textContainers        = document.getElementsByClassName("result-text");
+    let newContainers         = document.getElementsByClassName("result-new");
+    let dateContainers        = document.getElementsByClassName("result-date");
     let metaContainers        = document.getElementsByClassName("result-meta");
     let tweetLink             = document.getElementsByClassName("tweet-button-a");
     for (let i = 0; i < results.length; i++) {
-        const character = results[i][0];
-        const text      = results[i][1];
-        const metaList  = results[i][2];
+        const character = results[i]["character"];
+        const text      = results[i]["text"];
+        const is_new    = results[i]["is_new"];
+        const date      = results[i]["date"];
+        const metaList  = results[i]["meta_list"];
         const meta = metaList.reduce(
             (accum, m) =>
             accum + '<li class="breadcrumb-item">' + m + '</li>',
@@ -73,6 +84,8 @@ function fillResultBlocks(response) {
             + "&ref_src=twsrc%5Etfw&text=" + encodeURI(teweetText) + "&tw_p=tweetbutton&url=" + encodeURI(siteURL);
         characterContainers[i].textContent = character;
         textContainers[i]     .textContent = text;
+        newContainers[i]      .textContent = is_new ? "新作" : "";
+        dateContainers[i]     .textContent = date;
         metaContainers[i]     .innerHTML   = meta;
         tweetLink[i]          .href        = tweetHref;
         resultBlocks[i].style.display = "block";
@@ -80,12 +93,14 @@ function fillResultBlocks(response) {
 }
 
 function fillCharacterCounts(response) {
+    active_character = response["request"]["character"];
     chara_count_list = response["character_counts"];
     let inner_html = ""
     for (let i = 0; i < chara_count_list.length; i++) {
         const chara  = chara_count_list[i][0];
         const count = chara_count_list[i][1];
-        inner_html += '<div type="button" onclick="onCharaClick(\'' + chara + '\')" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">' + chara + '</span><span class="badge badge-secondary">' + count + '</span></div>';
+        const active_class = (chara == active_character) ? "list-group-item-secondary" : "" ;
+        inner_html += '<div type="button" onclick="onCharaClick(\'' + chara + '\')" class="list-group-item ' + active_class + ' list-group-item-action d-flex justify-content-between align-items-center py-2 result-characounts-item"><span class="result-characounts-text">' + chara + '</span><span class="badge badge-secondary">' + count + '</span></div>';
     }
     $("#result-characounts-list")[0].innerHTML = inner_html;
 }
@@ -95,7 +110,7 @@ function onCharaClick(character) {
         loading = true;
         startSpinner();
         hideResultBlocks();
-        sendRequest({"query":query, "character":character, "fuzzy_search": fuzzySearch});
+        sendRequest({"query":query, "character":character, "normalization_mode": normalization_mode});
     }
 }
 
