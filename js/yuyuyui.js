@@ -13,7 +13,8 @@ form.addEventListener('submit', function (evt) {
     const normalization_mode_mapping = {
         "normalization-radio-1": "none",
         "normalization-radio-2": "unicode",
-        "normalization-radio-3": "neologdn"
+        "normalization-radio-3": "neologdn",
+        "normalization-radio-4": "fuwafuwa"
     }
     const normalization_mode_key = document.querySelector("input[name='normalization-radio']:checked").id;
     normalization_mode = normalization_mode_mapping[normalization_mode_key];
@@ -28,11 +29,14 @@ form.addEventListener('submit', function (evt) {
 
 
 function sendRequest(request) {
+    const url = (request["normalization_mode"] == "fuwafuwa")?
+        'https://asia-northeast2-yuyuyui-script-search-20200915.cloudfunctions.net/fuwafuwa-search':
+        'https://asia-northeast2-yuyuyui-script-search-20200915.cloudfunctions.net/search';
     $.ajax({type: "post",
             contentType: 'application/json',
             dataType: "json",
             data: JSON.stringify(request),
-            url: 'https://asia-northeast2-yuyuyui-script-search-20200915.cloudfunctions.net/search'})
+            url: url})
     .done(function(response) {
         try {
             fillResultBlocks(response);
